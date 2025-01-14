@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: accessverifier-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: accessverifier
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: ClientDataManager
+    ports:
+    - protocol: TCP
+      port: 5000

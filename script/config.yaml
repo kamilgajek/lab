@@ -1,0 +1,4 @@
+aws_ip_ranges_url: "https://ip-ranges.amazonaws.com/ip-ranges.json"
+region: "eu-west-1"
+schedule_interval_days: 1
+log_directory: "/var/log/access_verifier"

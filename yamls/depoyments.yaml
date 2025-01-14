@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: accessverifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accessverifier
+  template:
+    metadata:
+      labels:
+        app: accessverifier
+    spec:
+      containers:
+      - name: accessverifier
+        image: docker-image:stable
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "25m"
+          limits:
+            memory: "256Mi"
+            cpu: "50m"
